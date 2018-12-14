@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet"href="./Js.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<meta charset="utf-8">
+</head>
+
+								<body >
+
+									<div class="btn-group">
+					  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    Action
+					  </button>
+					  <div class="dropdown-menu">
+					    <a class="dropdown-item" href="#">Action</a>
+					    <a class="dropdown-item" href="#">Another action</a>
+					    <a class="dropdown-item" href="#">Something else here</a>
+					    <div class="dropdown-divider"></div>
+					    <a class="dropdown-item" href="#">Separated link</a>
+					  </div>
+						</div>
+									<script type="text/javascript">
+									//Définition d’un objet
+									var obj = new Object();
+
+									//initialisation des attributs d’un tableau
+									obj["nom"] = "NOM1";
+									obj.prenom = "Prénom1";
+
+									//déclaration et initialisation d’un objet
+									var obj2 = {
+										nom:"NOM2",
+										prenom:"Prénom2"
+									};
+
+									//console.log(obj.nom);
+									//console.log(obj["prenom"]);
+									//console.log(obj2);
+
+									obj.age = 26;
+									//console.log(obj);
+
+									var prenom="ammar";
+									var nom="Diarra";
+
+									function creerPersonne(prenom,nom){
+										var personne = new Object();
+										personne.prenom = prenom ;
+										personne.nom = nom ; 
+										return personne ; 
+									};
+
+									function afficherPersonne(p){
+										console.log(p);
+									};
+
+									function PassageNuit(){
+										document.getElementById("image").src="./Images/Nuit.png"
+										document.body.style.backgroundColor = "red";
+									};
+									function RetourNormal(){
+										document.getElementById("image").src="./Images/Jour.png"
+										document.body.style.backgroundColor = "white";
+
+									};
+									
+									function changeColor(newColor) {
+									  var elem = document.getElementById('para');
+									  elem.style.color = newColor;
+									};
+									
+									var vlig = 4 ; 
+									var vcol = 4 ; 
+
+
+									var boutonName;
+
+									var boutonNode;
+									var videNode;
+
+									var boutonValue;
+									var videValue;
+
+
+									function move(lig,col){
+
+											boutonName ="case"+lig+col;
+											videName = "case"+vlig+vcol;
+
+
+											console.log("lig:"+lig);
+
+											console.log("col:"+col);
+
+											console.log("vlig:"+vlig);
+
+											console.log("vcol:"+vcol);
+
+											console.log("same col = " + col === vcol );
+											console.log("same lig = " + vlig === lig );
+
+											if (( lig == vlig && (col+1 == vcol || col-1 == vcol ))  ||
+												 (col == vcol && (lig+1 == vlig || lig-1 == vlig ))) {
+
+							
+											var boutonNode = document.getElementById(boutonName);
+											var videNode = document.getElementById(videName);
+										
+
+											boutonValue = boutonNode.innerHTML;
+											videValue = videNode.innerHTML;
+
+											var valuechange ;
+
+											valuechange = boutonValue;  
+											boutonValue= videValue;
+
+											vlig=lig;
+											vcol=col;
+
+											var b1 			= document.getElementById(boutonName)
+											var b2 			= document.getElementById(videName)
+											b1.innerHTML 	= boutonValue;
+											b2.innerHTML	= valuechange;
+
+											//boutonNode.className = "emptycase";
+											b1.className = "emptycase";
+											//videNode.className = "case";	
+											b2.className = "case";	
+																		   
+											}		
+										}
+
+									</script>
+
+								The content of the document......
+									<img id="image" class="image" src="./Images/Jour.png" alt="jour" width="300" height="200">
+									<p id="para">
+										test
+									</p>
+
+									 <button onclick="changeColor('blue');">blue</button>
+ 									 <button onclick="changeColor('red');">red</button>
+									 <button onclick="PassageNuit();">Nuit</button>
+ 									 <button onclick="RetourNormal();">Jour</button>
+
+<br>
+<br>
+		<div class="col-md-6">
+			
+			<button id="case11" class="case" onclick="move(1,1);">1</button>
+			<button id="case12" class="case" onclick="move(1,2);">2</button>
+			<button id="case13" class="case" onclick="move(1,3);">3</button>
+			<button id="case14" class="case" onclick="move(1,4);">4</button>
+			<hr>
+			<button id="case21" class="case" onclick="move(2,1);">5</button>
+			<button id="case22" class="case" onclick="move(2,2);">6</button>
+			<button id="case23" class="case" onclick="move(2,3);">7</button>
+			<button id="case24" class="case" onclick="move(2,4);">8</button>
+			<hr>
+			<button id="case31" class="case" onclick="move(3,1);">9</button>
+			<button id="case32" class="case" onclick="move(3,2);">10</button>
+			<button id="case33" class="case" onclick="move(3,3);">11</button>
+			<button id="case34" class="case" onclick="move(3,4);">12</button>
+			<hr>
+			<button id="case41" class="case" onclick="move(4,1);">13</button>
+			<button id="case42" class="case" onclick="move(4,2);">14</button>
+			<button id="case43" class="case" onclick="move(4,3);">15</button>
+			<button id="case44" class="emptycase"></button>
+			<hr>
+
+
+		</div>
+
+	</body>
+</html>
